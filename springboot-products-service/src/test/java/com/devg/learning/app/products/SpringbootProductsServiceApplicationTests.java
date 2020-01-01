@@ -1,10 +1,10 @@
-package com.formacionbdi.springboot.app.productos;
+package com.devg.learning.app.products;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootServicioProductosApplicationTests {
+class SpringbootProductsServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.devg.learning.app.products.models.entity;
+package com.devg.learning.app.products.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,45 +13,51 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="produtct")
-public class Product implements Serializable{
-	
+@Table(name = "product")
+public class Product implements Serializable {
+
 	private static final long serialVersionUID = 1285454306356845809L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private Double price;
-	
+
 	@Column(name = "created_at")
 	@Temporal(TemporalType.DATE)
 	private Date createdAt;
-	
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getNombre() {
+
+	public String getName() {
 		return name;
 	}
-	public void setNombre(String nombre) {
-		this.name = nombre;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public Double getPrecio() {
+
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrecio(Double precio) {
-		this.price = precio;
+
+	public void setPrice(Double price) {
+		this.price = price;
 	}
-	public Date getCreateAt() {
+
+	public Date getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreateAt(Date createAt) {
-		this.createdAt = createAt;
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
 }

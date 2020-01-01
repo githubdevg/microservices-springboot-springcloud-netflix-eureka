@@ -1,0 +1,10 @@
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Panasonic', 800, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Sony', 900, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Apple', 1000, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Hawei', 1100, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Samnsung', 1200, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Nike', 1300, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Adidas', 1400, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Hewlet Packard', 1500, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('Dell', 1600, NOW());
+INSERT INTO PRODUCT (name, price, created_at) VALUES('LG', 1700, NOW());

@@ -1,8 +1,8 @@
-package com.devg.learning.app.products.models.service;
+package com.devg.learning.app.products.service;
 
 import java.util.List;
 
-import com.devg.learning.app.products.models.entity.Product;
+import com.devg.learning.app.products.entity.Product;
 
 public interface ProductService {
 	

@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devg.learning.app.products.models.entity.Product;
-import com.devg.learning.app.products.models.service.ProductService;
+import com.devg.learning.app.products.entity.Product;
+import com.devg.learning.app.products.service.ProductService;
 
 @RestController
-public class ProductoController {
+public class ProductController {
 
 	@Autowired
 	private ProductService productoService;

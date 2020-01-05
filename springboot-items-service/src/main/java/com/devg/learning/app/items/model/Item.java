@@ -9,10 +9,10 @@ public class Item {
 		super();
 	}
 
-	public Item(Product product, Integer total) {
+	public Item(Product product, Integer quantity) {
 		super();
 		this.product = product;
-		this.quantity = total;
+		this.quantity = quantity;
 	}
 
 	public Product getProduct() {

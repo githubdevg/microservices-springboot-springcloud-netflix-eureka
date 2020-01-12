@@ -12,18 +12,22 @@ import org.springframework.web.client.RestTemplate;
 
 import com.devg.learning.app.items.model.Item;
 import com.devg.learning.app.items.model.Product;
-import com.devg.learning.app.items.service.ItemsService;
+import com.devg.learning.app.items.service.ItemService;
 
-@Service
-public class ItemServiceImpl implements ItemsService {
+@Service("itemsServiceRestClientImpl")
+public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private RestTemplate productsRestClient;
 
 	@Override
 	public List<Item> findAll() {
+//		List<Product> productList = Arrays
+//				.asList(productsRestClient.getForObject("http://localhost:8001/list", Product[].class));
+		
 		List<Product> productList = Arrays
-				.asList(productsRestClient.getForObject("http://localhost:8001/list", Product[].class));
+		.asList(productsRestClient.getForObject("http://products-service/list", Product[].class));
+		
 		return productList.stream().map(product -> new Item(product, 1)).collect(Collectors.toList());
 	}
 
@@ -31,7 +35,9 @@ public class ItemServiceImpl implements ItemsService {
 	public Item findById(Long id, Integer quantity) {
 		Map<String, String> pathVariables = new HashMap<>();
 		pathVariables.put("id", id.toString());
-		Product product = productsRestClient.getForObject("http://localhost:8001/product/{id}", Product.class,
+//		Product product = productsRestClient.getForObject("http://localhost:8001/product/{id}", Product.class,
+//				pathVariables);		
+		Product product = productsRestClient.getForObject("http://products-service/product/{id}", Product.class,
 				pathVariables);
 		return new Item(product, quantity);
 	}

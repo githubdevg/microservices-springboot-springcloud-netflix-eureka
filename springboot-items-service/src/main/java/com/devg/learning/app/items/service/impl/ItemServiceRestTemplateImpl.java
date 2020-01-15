@@ -15,7 +15,7 @@ import com.devg.learning.app.items.model.Product;
 import com.devg.learning.app.items.service.ItemService;
 
 @Service("itemsServiceRestClientImpl")
-public class ItemServiceImpl implements ItemService {
+public class ItemServiceRestTemplateImpl implements ItemService {
 
 	@Autowired
 	private RestTemplate productsRestClient;
@@ -26,7 +26,7 @@ public class ItemServiceImpl implements ItemService {
 //				.asList(productsRestClient.getForObject("http://localhost:8001/list", Product[].class));
 		
 		List<Product> productList = Arrays
-		.asList(productsRestClient.getForObject("http://products-service/list", Product[].class));
+		.asList(productsRestClient.getForObject("http://products-service/api/products", Product[].class));
 		
 		return productList.stream().map(product -> new Item(product, 1)).collect(Collectors.toList());
 	}
@@ -37,7 +37,7 @@ public class ItemServiceImpl implements ItemService {
 		pathVariables.put("id", id.toString());
 //		Product product = productsRestClient.getForObject("http://localhost:8001/product/{id}", Product.class,
 //				pathVariables);		
-		Product product = productsRestClient.getForObject("http://products-service/product/{id}", Product.class,
+		Product product = productsRestClient.getForObject("http://products-service/api/products/{id}", Product.class,
 				pathVariables);
 		return new Item(product, quantity);
 	}

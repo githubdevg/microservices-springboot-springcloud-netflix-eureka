@@ -23,12 +23,12 @@ public class ItemController {
 	private ItemService itemService;
 	
 	
-	@GetMapping("/list")
+	@GetMapping("/items")
 	public List<Item> listItems() {
 		return itemService.findAll();
 	}
 	
-	@GetMapping("/product/{id}/quantity/{quantity}")
+	@GetMapping("/items/{id}/quantity/{quantity}")
 	public Item getProduct(@PathVariable Long id, @PathVariable Integer quantity) {
 		return itemService.findById(id, quantity);
 	}

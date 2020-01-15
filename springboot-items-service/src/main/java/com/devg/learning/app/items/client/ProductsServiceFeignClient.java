@@ -14,10 +14,10 @@ import com.devg.learning.app.items.model.Product;
 public interface ProductsServiceFeignClient {
 	
 	
-	@GetMapping("list")
+	@GetMapping("/api/products")
 	public List<Product> listProducts();
 		
-	@GetMapping("/product/{id}")
+	@GetMapping("/api/products/{id}")
 	public Product getProduct(@PathVariable Long id);
 	
 

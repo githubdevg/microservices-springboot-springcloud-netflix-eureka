@@ -39,6 +39,13 @@ public class ProductController {
 	public Product getProduct(@PathVariable Long id) {
 		Product product = productService.findById(id);
 		//product.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+		
+		try {
+			Thread.sleep(2000L);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		product.setPort(port);
 		return product;
 	}

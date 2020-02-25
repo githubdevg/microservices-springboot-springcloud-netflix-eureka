@@ -1,15 +1,16 @@
-package com.devg.learning.app.products;
+package com.devg.learning.app.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableEurekaClient
+@EnableZuulProxy
 @SpringBootApplication
-public class SpringbootProductsServiceApplication {
+public class SpringbootZuulServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootProductsServiceApplication.class, args);
+		SpringApplication.run(SpringbootZuulServerApplication.class, args);
 	}
 
 }

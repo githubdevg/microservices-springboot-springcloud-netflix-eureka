@@ -39,6 +39,14 @@ public class ProductController {
 	public Product getProduct(@PathVariable Long id) {
 		Product product = productService.findById(id);
 		//product.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+		
+//		Code to Test Hystryx timeout and fallback method call		
+//		try {
+//			Thread.sleep(2000L);
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		
 		product.setPort(port);
 		return product;
 	}

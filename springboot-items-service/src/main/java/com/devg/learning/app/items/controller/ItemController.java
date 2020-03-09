@@ -1,16 +1,11 @@
 package com.devg.learning.app.items.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.core.env.Environment;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,11 +27,7 @@ public class ItemController {
 	@Qualifier("itemsServiceFeignImpl")
 	private ItemService itemService;
 
-	@Autowired
-	private Environment env;
-	
-	@Value("${config.description}")
-	private String environmentDescription;
+
 	
 	@GetMapping("/items")
 	public List<Item> listItems() {
@@ -64,16 +55,4 @@ public class ItemController {
 		return item;
 	}
 	
-	@GetMapping("/config")
-	public ResponseEntity<?> getConfiguration() {
-		Map<String, Object> response = new HashMap<>();
-		response.put("environmentDescription", environmentDescription);
-		
-		if(env.getActiveProfiles().length>0 && env.getActiveProfiles()[0].equals("dev")) {
-			String devToken = env.getProperty("config.dev.authentication.token", "Default");
-			response.put("devToken", devToken);
-		}
-		
-		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
-	}
 }
